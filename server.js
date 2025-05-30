@@ -211,7 +211,7 @@ app.use((error, req, res, next) => {
 const initializeBlockchain = async () => {
   try {
     await BlockchainController.initializeGenesis();
-    console.log('Blockchain initialized successfully');
+    // Blockchain initialized silently
   } catch (error) {
     console.error('Failed to initialize blockchain:', error);
   }
@@ -223,25 +223,7 @@ const startServer = async () => {
     await initializeBlockchain();
     
     app.listen(PORT, () => {
-      console.log(`
-🚀 Blockchain REST API Server Started
-📍 Server running on: http://localhost:${PORT}
-🌍 Environment: ${process.env.NODE_ENV || 'development'}
-📖 API Documentation: http://localhost:${PORT}/api
-💾 Database: ${process.env.MONGODB_URI}
-🔐 JWT Secret: ${process.env.JWT_SECRET ? 'Configured' : 'Not configured'}
-⏰ Started at: ${new Date().toISOString()}
-
-Available Endpoints:
-🔍 GET  /health - Health check
-📚 GET  /api - API documentation
-🔐 POST /api/auth/register - Register user
-🔐 POST /api/auth/login - Login user
-💰 POST /api/wallets - Create wallet (protected)
-💸 POST /api/transactions - Create transaction (protected)  
-⛏️  POST /api/blockchain/mine - Mine block (admin only)
-📊 GET  /api/blockchain/status - Blockchain status
-      `);
+      //console.log(`🚀 Blockchain API running on http://localhost:${PORT}`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
@@ -272,6 +254,9 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 
-startServer();
+// Only start server if not in test environment
+if (process.env.NODE_ENV !== 'test') {
+  startServer();
+}
 
 module.exports = app; 

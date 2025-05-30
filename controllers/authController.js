@@ -6,7 +6,7 @@ class AuthController {
   // Register new user
   static async register(req, res) {
     try {
-      const { username, email, password, profile } = req.body;
+      const { username, email, password, role, profile } = req.body;
 
       // Check if user already exists
       const existingUser = await User.findOne({
@@ -27,6 +27,7 @@ class AuthController {
         username,
         email,
         password,
+        role: role || 'user', // Use provided role or default to 'user'
         profile: profile || {}
       });
 

@@ -41,7 +41,6 @@ const walletSchema = new mongoose.Schema({
 
 // Indexes for performance
 walletSchema.index({ userId: 1 });
-walletSchema.index({ address: 1 });
 
 // Virtual for formatted balance
 walletSchema.virtual('formattedBalance').get(function() {

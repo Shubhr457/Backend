@@ -44,8 +44,6 @@ const blockSchema = new mongoose.Schema({
 });
 
 // Indexes for performance
-blockSchema.index({ index: 1 });
-blockSchema.index({ hash: 1 });
 blockSchema.index({ timestamp: -1 });
 
 // Virtual to check if block is genesis block

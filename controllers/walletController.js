@@ -19,7 +19,7 @@ class WalletController {
         address,
         publicKey,
         privateKey, // In production, encrypt this
-        balance: 0,
+        balance: 1000, // Initial balance of 1000 for new wallets
         metadata: {
           name: metadata?.name || 'My Wallet',
           description: metadata?.description || ''

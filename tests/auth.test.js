@@ -1,5 +1,10 @@
 const request = require('supertest');
 const mongoose = require('mongoose');
+
+// Set test environment before importing server
+process.env.NODE_ENV = 'test';
+process.env.MONGODB_URI = 'mongodb+srv://shubhr457:0qPlUR7MzNfbrV5A@cluster0.kpqwwla.mongodb.net/blockchain_test?retryWrites=true&w=majority&appName=Cluster0';
+
 const app = require('../server');
 const User = require('../models/User');
 
@@ -10,20 +15,25 @@ describe('Authentication Endpoints', () => {
   beforeAll(async () => {
     // Connect to test database
     if (mongoose.connection.readyState === 0) {
-      await mongoose.connect(process.env.MONGODB_URI_TEST || 'mongodb://localhost:27017/blockchain_test');
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 10000, // Increase timeout
+        socketTimeoutMS: 45000,
+      });
     }
-  });
+  }, 20000); // 20 second timeout for database connection
 
   beforeEach(async () => {
     // Clear users collection before each test
     await User.deleteMany({});
-  });
+  }, 10000); // 10 second timeout for cleanup
 
   afterAll(async () => {
     // Clean up and close database connection
     await User.deleteMany({});
     await mongoose.connection.close();
-  });
+  }, 10000);
 
   describe('POST /api/auth/register', () => {
     it('should register a new user successfully', async () => {

@@ -58,7 +58,6 @@ transactionSchema.index({ toWallet: 1 });
 transactionSchema.index({ userId: 1 });
 transactionSchema.index({ status: 1 });
 transactionSchema.index({ timestamp: -1 });
-transactionSchema.index({ hash: 1 });
 
 // Virtual for total amount (amount + fee)
 transactionSchema.virtual('totalAmount').get(function() {

@@ -2,7 +2,7 @@
 
 A comprehensive blockchain REST API built with Node.js, Express, MongoDB, and JWT authentication. This mid-level implementation covers all core blockchain concepts including wallet management, transactions, mining, and blockchain validation.
 
-## 🚀 Features
+## Features
 
 ### Authentication & Authorization
 - **JWT-based authentication** with access and refresh tokens
@@ -39,13 +39,13 @@ A comprehensive blockchain REST API built with Node.js, Express, MongoDB, and JW
 - **Rate limiting** and security headers
 - **Comprehensive error handling**
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Node.js** v16+ 
 - **MongoDB** v4.4+
 - **NPM** or **Yarn**
 
-## ⚡ Quick Start
+## Quick Start
 
 ### 1. Installation
 
@@ -94,7 +94,7 @@ npm start
 
 The server will start at `http://localhost:3000`
 
-## 📖 API Documentation
+##  API Documentation
 
 ### Base URL
 ```
@@ -115,7 +115,7 @@ Bob: bob@blockchain.com / bob123
 Charlie: charlie@blockchain.com / charlie123
 ```
 
-## 🔐 Authentication Endpoints
+##  Authentication Endpoints
 
 ### Register User
 ```http
@@ -174,7 +174,7 @@ Content-Type: application/json
 }
 ```
 
-## 💰 Wallet Endpoints
+##  Wallet Endpoints
 
 ### Create Wallet (Protected)
 ```http
@@ -228,7 +228,7 @@ GET /api/wallets/{walletId}/transactions?status=confirmed&limit=20
 Authorization: Bearer <token>
 ```
 
-## 💸 Transaction Endpoints
+##  Transaction Endpoints
 
 ### Create Transaction (Protected)
 ```http
@@ -269,7 +269,7 @@ GET /api/transactions?status=pending&limit=20&offset=0&sortBy=timestamp&order=de
 GET /api/transactions/{transactionId}
 ```
 
-## ⛓️ Blockchain Endpoints
+##  Blockchain Endpoints
 
 ### Get Blocks (Public)
 ```http
@@ -292,13 +292,13 @@ POST /api/blockchain/mine
 Authorization: Bearer <admin-token>
 ```
 
-### Validate Blockchain (Admin Only)
+## Validate Blockchain (Admin Only)
 ```http
 GET /api/blockchain/validate
 Authorization: Bearer <admin-token>
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Run Tests
 ```bash
@@ -321,7 +321,7 @@ npm run test:coverage
 5. Mine blocks as admin
 6. Validate blockchain integrity
 
-## 🔧 Development
+##  Development
 
 ### Project Structure
 ```
@@ -364,7 +364,7 @@ blockchain-rest-api/
 - **cors**: Cross-origin resource sharing
 - **express-rate-limit**: Rate limiting
 
-## 🔒 Security Features
+##  Security Features
 
 - **JWT-based authentication** with short-lived tokens
 - **Refresh token rotation** for security
@@ -375,7 +375,7 @@ blockchain-rest-api/
 - **Role-based access control**
 - **Digital signatures** for transaction verification
 
-## 📊 Performance Considerations
+##  Performance Considerations
 
 - **Database indexing** on frequently queried fields
 - **Connection pooling** for MongoDB
@@ -384,7 +384,7 @@ blockchain-rest-api/
 - **Response caching** headers
 - **Compression** middleware
 
-## 🚨 Error Handling
+##  Error Handling
 
 The API implements comprehensive error handling with:
 - **Consistent error response format**
@@ -393,7 +393,7 @@ The API implements comprehensive error handling with:
 - **Request logging** for debugging
 - **Graceful server shutdown**
 
-## 🌐 Deployment
+##  Deployment
 
 ### Production Checklist
 - [ ] Set `NODE_ENV=production`
@@ -416,7 +416,7 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
-## 📝 API Response Format
+##  API Response Format
 
 All API responses follow this consistent format:
 
@@ -445,7 +445,7 @@ All API responses follow this consistent format:
 }
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -454,11 +454,11 @@ All API responses follow this consistent format:
 5. Ensure all tests pass
 6. Submit a pull request
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
 
-## 🆘 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -484,13 +484,9 @@ POST /api/auth/refresh
 - Only admin users can mine blocks
 - Login with admin credentials
 
-## 📞 Support
+##  Support
 
 For support and questions:
 - Create an issue in the repository
 - Check the documentation
 - Review the error logs
-
----
-
-Built with ❤️ for blockchain education and development. 

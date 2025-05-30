@@ -48,6 +48,7 @@ const authSchemas = {
     username: Joi.string().alphanum().min(3).max(30).required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(6).required(),
+    role: Joi.string().valid('user', 'admin').optional(),
     profile: Joi.object({
       firstName: Joi.string().min(1).max(50),
       lastName: Joi.string().min(1).max(50),
